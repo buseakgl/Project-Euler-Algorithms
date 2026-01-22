@@ -3,10 +3,8 @@ package project_euler.question8;
 
 public class Question8 {
     public static void main(String[] args) {
-        long product;
-        long maxProduct;
         String number =
-                "73167176531330624919225119674426574742355349194934" +
+                        "73167176531330624919225119674426574742355349194934" +
                         "96983520312774506326239578318016984801869478851843" +
                         "85861560789112949495459501737958331952853208805511" +
                         "12540698747158523863050715693290963295227443043557" +
@@ -26,11 +24,22 @@ public class Question8 {
                         "84580156166097919133875499200524063689912560717606" +
                         "05886116467109405077541002256983155200055935729725" +
                         "71636269561882670428252483600823257530420752963450";
-        for(int i=0; i <= - 13; i++){
-            long produnct = 1;
-            for()
+
+        long maxProduct = 0;
+
+        for (int i = 0; i <= number.length() - 13; i++) {
+            long product = 1;
+
+            for (int j = 0; j < 13; j++) {
+                int digit = number.charAt(i + j) - '0';
+                product = product * digit;
+            }
+
+            if (product > maxProduct) {
+                maxProduct = product;
+            }
         }
 
-
+        System.out.println(maxProduct);
     }
 }
